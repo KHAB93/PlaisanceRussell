@@ -30,5 +30,5 @@ describe('Catway Model', () => {
         expect(savedCatway.catwayNumber).to.equal(1);
     });
 
-    // Ajoutez d'autres tests ici
+    
 });
