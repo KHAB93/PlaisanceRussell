@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+        }
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/api/catways">Catways</a>
+        <a href="/api/reservations">Réservations</a>
+        <a href="/docs">Documentation</a>
+        <a href="/api/auth/login">Connexion</a>
+        <a href="/api/auth/register">Inscription</a>
+    </nav>
+    <div>
+        <%- body %> <!-- Contenu de la page spécifique -->
+    </div>
+    
+</body>
+</html>

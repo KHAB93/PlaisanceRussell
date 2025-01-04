@@ -1,0 +1,50 @@
+[
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a2",
+    "catwayNumber": 1,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a3",
+    "catwayNumber": 2,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a4",
+    "catwayNumber": 3,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a5",
+    "catwayNumber": 4,
+    "type": "long",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a6",
+    "catwayNumber": 5,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a7",
+    "catwayNumber": 6,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a8",
+    "catwayNumber": 7,
+    "type": "short",
+    "catwayState": "bon état"
+  },
+  {
+    "_id": "60d5ec49f1b2c8b1f8e4e1a9",
+    "catwayNumber": "8",
+    "type": "short",
+    "catwayState": "bon état"
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "1",
+    "catwayNumber": 1,
+    "clientName": "Thomas Martin",
+    "boatName": "Carolina",
+    "checkIn": "2022-05-21T06:00:00Z",
+    "checkOut": "2022-10-27T06:00:00Z"
+  },
+  {
+    "id": "2",
+    "catwayNumber": 2,
+    "clientName": "John Doe",
+    "boatName": "Groeland",
+    "checkIn": "2022-05-18T06:00:00Z",
+    "checkOut": "2022-11-30T06:00:00Z"
+  },
+  {
+    "id": "3",
+    "catwayNumber": 3,
+    "clientName": "Margareth Wurtz",
+    "boatName": "Sirène",
+    "checkIn": "2022-06-20T06:00:00Z",
+    "checkOut": "2022-08-27T06:00:00Z"
+  },
+  {
+    "id": "11",
+    "catwayNumber": 11,
+    "clientName": "Jack Sparrow",
+    "boatName": "Black perl",
+    "checkIn": "2022-08-13T06:00:00Z",
+    "checkOut": "2022-09-13T06:00:00Z"
+  },
+  {
+    "id": "7",
+    "clientName": "Ralph Laurent",
+    "boatName": "Surcouf",
+    "catwayNumber": "7",
+    "checkIn": "2022-07-01",
+    "checkOut": "2022-10-13"
+  },
+  {
+    "id": "13",
+    "catwayNumber": 13,
+    "clientName": "Jacky Snow",
+    "boatName": "léandra",
+    "checkIn": "2022-09-18T06:00:00Z",
+    "checkOut": "2022-12-23T06:00:00Z"
+  },
+  {
+    "clientName": "DUPONT LUC",
+    "boatName": "LIFA",
+    "catwayNumber": 53,
+    "checkIn": "2024-12-09T00:00:00.000Z",
+    "checkOut": "2024-12-23T00:00:00.000Z",
+    "_id": "6778d0c7a2b8d1a7845f0ef6",
+    "__v": 0
+  }
+]

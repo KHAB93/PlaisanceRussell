@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <a href="/docs/tutorial">Aller au Tutoriel</a>
+    <a href="/docs/examples">Voir des Exemples</a>
+    <a href="/docs/glossary">Consulter le Glossaire</a>
+
+    <p>Bienvenue dans la documentation de l'API. Cette API vous permet de gérer les utilisateurs, les catways et les réservations.</p>
+
+    <p>Voici quelques exemples d'appels API</p>
+
+    <p> curl -X POST http://localhost:8080/api/auth/login \
+    -H "Content-Type: application/json" \
+    -d '{"username": "user1", "password": "password123"}'</p>
+
+    <p>Création d'un Nouvel Utilisateur :
+    curl -X POST http://localhost:8080/api/auth/register \
+    -H "Content-Type: application/json" \
+    -d '{"username": "newuser", "password": "newpassword"}'</p>
+
+    <p>
+    Récupération de la Liste des Catways :
+    curl -X GET http://localhost:8080/api/catways
+    </p>
+
+   <p>
+    Création d'une réservation
+    curl -X POST http://localhost:8080/api/reservations \
+    -H "Content-Type: application/json" \
+    -d '{"userId": "user1", "catwayId": "catway1", "date": "2023-10-01"}'
+   </p> 
+
+   <a href="/">Retour à l'accueil</a>
+    
+</body>
+</html>

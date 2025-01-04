@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1><%= title %></h1>
+
+    <a href="/docs/tutorial">Aller au Tutoriel</a>
+    <a href="/docs/examples">Voir des Exemples</a>
+    <a href="/docs/glossary">Consulter le Glossaire</a>
+
+    <p>Bienvenue dans la documentation de l'API. Cette API vous permet de gérer les utilisateurs, les catways et les réservations.</p>
+
+    <p> Authentification d'un Utilisateur :
+        Endpoint : POST /api/auth/login
+        Description : Authentifie un utilisateur.</p>
+
+    <p>Création d'un Nouvel Utilisateur :
+        Endpoint : POST /api/auth/register
+        Description : Crée un nouvel utilisateur.</p>
+
+    <p>
+        Récupération de la Liste des Catways :
+        Endpoint : GET /api/catways
+        Description : Récupère la liste de tous les catways.
+    </p>
+
+    <p>
+        Récupération des Détails d'un Catway :
+        Endpoint : GET /api/catways/:id
+        Description : Récupère les détails d'un catway par ID.
+    </p>
+
+    <p>
+        Création d'une Réservation :
+        Endpoint : POST /api/reservations
+        Description : Crée une nouvelle réservation.
+    </p>
+
+    <p>
+        Récupération de la Liste des Réservations :
+        Endpoint : GET /api/reservations
+        Description : Récupère la liste de toutes les réservations.
+    </p>
+
+    <a href="/">Retour à l'accueil</a>
+    
+</body>
+</html>

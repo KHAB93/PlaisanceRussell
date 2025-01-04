@@ -1,0 +1,9 @@
+
+<h1>Liste des Catways</h1>
+<ul>
+    <% catways.forEach(catway => { %>
+        <li><a href="/api/catways/<%= catway.id %>"><%= catway.catwayNumber %> - <%= catway.type %> - <%= catway.catwayState %></a></li>
+    <% }); %>
+</ul>
+<a href="/">Retour à l'accueil</a>
+

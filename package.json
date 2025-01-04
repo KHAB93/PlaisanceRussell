@@ -1,0 +1,29 @@
+{
+  "name": "plaisancerussell",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha test/**/*.test.js",
+    "start": "node app.js && npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.3",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "chai": "^5.1.2",
+    "jsdoc": "^4.0.4",
+    "mocha": "^11.0.1"
+  },
+  "description": ""
+}

@@ -1,0 +1,11 @@
+<h1>Liste des Réservations</h1>
+<ul>
+    <% reservations.forEach(reservation => { %>
+        <li>
+            <a href="/api/reservations/<%= reservation._id %>">
+                <%= reservation._id %> - <%= reservation.userId.username %> - <%= reservation.catwayId.catwayNumber %> - <%= reservation.reservationDate.toLocaleString() %> - <%= reservation.status %>
+            </a>
+        </li>
+    <% }); %>
+</ul>
+<a href="/">Retour à l'accueil</a>

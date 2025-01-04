@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Application de Gestion des Catways</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        nav {
+            background-color: #007bff;
+            padding: 10px;
+            color: white;
+        }
+        nav a {
+            color: white;
+            margin-right: 15px;
+            text-decoration: none;
+        }
+        h1 {
+            color: #007bff;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input {
+            margin: 5px 0;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/api/catways">Catways</a>
+        <a href="/api/reservations">Réservations</a>
+        <a href="/docs">Documentation</a>
+    </nav>
+
+    <h1>Bienvenue dans l'application de gestion des catways</h1>
+    <p>Cette application vous permet de gérer les catways et les réservations.</p>
+
+    <h2>Connexion</h2>
+    <form method="POST" action="/api/auth/login">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit">Connexion</button>
+    </form>
+
+    <p><a href="/docs">Consulter la documentation de l'API</a></p>
+
+</body>
+</html>

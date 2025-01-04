@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Utilisateurs</title>
+</head>
+<body>
+    <h1>Liste des Utilisateurs</h1>
+    <ul>
+        <% users.forEach(user => { %>
+            <li><%= user.username %> (ID: <%= user.id %>)</li>
+        <% }); %>
+    </ul>
+    <a href="/">Retour au tableau de bord</a>
+</body>
+</html>
