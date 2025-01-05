@@ -1,9 +1,8 @@
-// test/reservation.test.js
 const chai = require('chai');
 const expect = chai.expect;
 const mongoose = require('mongoose');
-const Reservation = require('../models/reservation'); // Assurez-vous que le chemin est correct
-const Catway = require('../models/catway'); // Assurez-vous que le chemin est correct
+const Reservation = require('../models/Reservation'); 
+const Catway = require('../models/Catway'); 
 
 describe('Reservation Model', () => {
     let catwayId;

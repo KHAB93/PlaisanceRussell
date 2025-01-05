@@ -1,8 +1,7 @@
-// test/catway.test.js
 const chai = require('chai');
 const expect = chai.expect;
 const mongoose = require('mongoose');
-const Catway = require('../models/catway'); // Assurez-vous que le chemin est correct
+const Catway = require('../models/Catway'); 
 
 describe('Catway Model', () => {
     before(async () => {

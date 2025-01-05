@@ -1,8 +1,7 @@
-// test/user.test.js
 const chai = require('chai');
 const expect = chai.expect;
 const mongoose = require('mongoose');
-const User = require('../models/user'); // Assurez-vous que le chemin est correct
+const User = require('../models/User'); 
 
 describe('User  Model', () => {
     before(async () => {

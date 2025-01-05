@@ -10,8 +10,8 @@ const catwayRoutes = require('./routes/catwayRoutes');
 const reservationRoutes = require('./routes/reservationRoutes');
 const LocalStrategy = require('passport-local').Strategy;
 const bcrypt = require('bcrypt');
-const User = require('./models/User'); // Assurez-vous d'avoir un modèle User
-const docsRoutes = require('./routes/docsRoutes'); // Importez le fichier de routes de documentation
+const User = require('./models/User'); 
+const docsRoutes = require('./routes/docsRoutes'); 
 const path = require('path');
 
 
@@ -34,7 +34,7 @@ app.use(flash()); // Utilisez le middleware flash
 
 // Configurer EJS comme moteur de template
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); // Assurez-vous que le chemin est correct
+app.set('views', path.join(__dirname, 'views')); 
 
 // Configuration de la stratégie d'authentification
 passport.use(new LocalStrategy(async (username, password, done) => {
