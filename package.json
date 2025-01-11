@@ -20,8 +20,6 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
   },
- 
-
   "devDependencies": {
     "chai": "^5.1.2",
     "jsdoc": "^4.0.4",
@@ -29,6 +27,6 @@
   },
   "description": "",
   "engines": {
-    "node": "v20.15.1"  
+    "node": "v20.15.1"
   }
 }
