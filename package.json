@@ -4,7 +4,7 @@
   "main": "server.js",
   "scripts": {
     "test": "mocha test/**/*.test.js",
-    "start": "node server.js && npm test"
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
