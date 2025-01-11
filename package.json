@@ -1,7 +1,13 @@
 {
   "name": "plaisancerussell",
   "version": "1.0.0",
+   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "20.15.1"
+  },
+  
+
   "scripts": {
     "test": "mocha test/**/*.test.js",
     "start": "node server.js"
@@ -25,9 +31,7 @@
     "chai": "^5.1.2",
     "jsdoc": "^4.0.4",
     "mocha": "^11.0.1"
-  },
-  "description": "",
-  "engines": {
-    "node": "22.11.0."
   }
+ 
+  
 }
