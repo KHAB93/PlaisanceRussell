@@ -96,6 +96,6 @@ app.get('/', (req, res) => {
 
 // Démarrer le serveur
 
-app.listen(port, () => {
-    console.log(`Serveur en cours d'exécution sur le port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
 });
