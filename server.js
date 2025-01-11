@@ -16,7 +16,7 @@ const path = require('path');
 
 
 const app = express();
-const PORT = process.env.PORT || 8080; 
+ 
 
 // Middleware pour gérer les sessions
 app.use(session({
@@ -96,6 +96,9 @@ app.get('/', (req, res) => {
 
 // Démarrer le serveur
 
-app.listen(PORT, () => {
-    console.log(`Serveur en cours d'exécution sur le port ${PORT}`);
-});
+
+
+
+  app.listen(process.env.PORT || 8080, function () {
+    console.log("The server has started successfully");
+  });
