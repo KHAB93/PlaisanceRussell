@@ -3,8 +3,8 @@ const router = express.Router();
 const User = require('../models/User'); 
 const path = require('path');
 const { isAuthenticated } = require('../middlewares/authMiddleware');
-const bcrypt = require('bcrypt');
 const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 
 // Route pour le tableau de bord
