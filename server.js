@@ -91,11 +91,17 @@ async function importData() {
         // Lire le fichier JSON à partir du chemin spécifié
         const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         
-        // Remplacez 'votreCollection' par le nom de votre collection
-        const collection = mongoose.connection.collection('catways'); // Exemple : 'catways'
+        // Remplacez 'catways' par le nom de votre collection
+        const collection = mongoose.connection.collection('catways');
 
-        // Insérer les données dans la collection
-        await collection.insertMany(data);
+        // Mettre à jour ou insérer les données
+        for (const item of data) {
+            await collection.updateOne(
+                { _id: item._id }, // Critère de recherche
+                { $set: item }, // Mettre à jour le document
+                { upsert: true } // Créer un nouveau document si aucun document correspondant n'est trouvé
+            );
+        }
         console.log('Données importées avec succès');
     } catch (error) {
         console.error('Erreur lors de l\'importation des données:', error);
