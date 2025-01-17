@@ -13,10 +13,11 @@ const bcrypt = require('bcryptjs');
 const User = require('./models/User'); 
 const docsRoutes = require('./routes/docsRoutes'); 
 const path = require('path');
+const fs = require('fs'); // Importer fs pour lire le fichier JSON
 
+const filePath = path.join(__dirname, 'data', 'catways.json'); // 
 
 const app = express();
- 
 
 // Middleware pour gérer les sessions
 app.use(session({
@@ -76,8 +77,30 @@ passport.deserializeUser (async (id, done) => {
 
 // Connexion à MongoDB
 mongoose.connect('mongodb://localhost:27017/Databases')
-.then(() => console.log('Connecté à MongoDB'))
-.catch(err => console.error('Erreur de connexion à MongoDB:', err));
+    .then(() => {
+        console.log('Connecté à MongoDB');
+        // Appel de la fonction de migration après la connexion
+        return importData();
+    })
+    .catch(err => console.error('Erreur de connexion à MongoDB:', err));
+
+
+// Fonction de migration
+async function importData() {
+    try {
+        // Lire le fichier JSON à partir du chemin spécifié
+        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        
+        // Remplacez 'votreCollection' par le nom de votre collection
+        const collection = mongoose.connection.collection('catways'); // Exemple : 'catways'
+
+        // Insérer les données dans la collection
+        await collection.insertMany(data);
+        console.log('Données importées avec succès');
+    } catch (error) {
+        console.error('Erreur lors de l\'importation des données:', error);
+    }
+}
 
 // Routes
 app.use('/api/auth', authRoutes);
@@ -96,6 +119,3 @@ app.get('/', (req, res) => {
 
 // Démarrer le serveur
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
