@@ -5,30 +5,40 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 
 
-// Route pour l'inscription d'un nouvel utilisateur
+// Route pour l'inscription
 router.post('/register', async (req, res) => {
     const { username, password } = req.body;
+    console.log('Requête reçue avec les données :', req.body);
 
     try {
-        // Vérifiez si l'utilisateur existe déjà
-        const existingUser  = await User.findOne({ username });
-        if (existingUser ) {
-            return res.status(400).send('Utilisateur déjà existant.');
+        const existingUser = await User.findOne({ username });
+        console.log('Utilisateur existant :', existingUser);
+
+        if (existingUser) {
+            return res.status(400).json({ message: 'Nom d\'utilisateur déjà pris.' });
         }
 
-        // Hachez le mot de passe
         const hashedPassword = await bcrypt.hash(password, 10);
+        console.log('Mot de passe haché :', hashedPassword);
 
-        // Créez un nouvel utilisateur
-        const newUser  = new User({ username, password: hashedPassword });
-        await newUser .save();
+        const newUser = new User({
+            username,
+            password: hashedPassword,
+        });
 
-        res.status(201).send('Utilisateur créé avec succès.');
+        const savedUser = await newUser.save();
+        console.log('Utilisateur enregistré :', savedUser);
+
+        res.status(201).json({ message: 'Utilisateur créé avec succès.' });
     } catch (error) {
-        console.error('Erreur lors de l\'inscription:', error);
-        res.status(500).send('Erreur lors de l\'inscription.');
+        console.error('Erreur lors de l\'inscription :', error);
+        res.status(500).json({ message: 'Une erreur est survenue. Veuillez réessayer plus tard.' });
     }
 });
+
+
+module.exports = router;
+
 
 
 // Route pour afficher le formulaire d'inscription
@@ -63,9 +73,9 @@ router.get('/login', (req, res) => {
 // Route pour afficher le tableau de bord
 router.get('/dashboard', (req, res) => {
     if (req.isAuthenticated()) {
-        res.send(`Bienvenue ${req.user.username}`);
+        res.render('dashboard', { user: req.user }); // Rendre la vue du tableau de bord
     } else {
-        res.redirect('/login');
+        res.redirect('/'); // Redirigez vers la page d'accueil si l'utilisateur n'est pas authentifié
     }
 });
 

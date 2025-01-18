@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User'); 
-const path = require('path');
 const { isAuthenticated } = require('../middlewares/authMiddleware');
-const fs = require('fs');
 const bcrypt = require('bcryptjs');
 
 
@@ -97,7 +95,9 @@ router.post('/create', async (req, res) => {
 
     try {
         // Vérifiez si l'utilisateur existe déjà
+        console.log('Recherche de l\'utilisateur...');
         const existingUser  = await User.findOne({ username });
+        console.log('Utilisateur trouvé:', existingUser );
         if (existingUser ) {
             return res.status(400).send('L\'utilisateur existe déjà.');
         }
@@ -107,39 +107,12 @@ router.post('/create', async (req, res) => {
 
         // Créez un nouvel utilisateur
         const newUser  = new User({ username, password: hashedPassword });
-        const savedUser  = await newUser .save(); // Sauvegarde de l'utilisateur
-
-        // Chemin vers le fichier JSON des utilisateurs
-        const filePath = path.join(__dirname, '../data/users.json');
-        console.log('Chemin vers le fichier users.json:', filePath);
-
-        // Lire le fichier JSON existant
-        fs.readFile(filePath, 'utf8', (err, data) => {
-            if (err) {
-                console.error('Erreur lors de la lecture du fichier users.json:', err);
-                return res.status(500).send('Erreur lors de la mise à jour du fichier des utilisateurs.');
-            }
-
-        // Convertir le contenu en tableau d'objets
-            let users = JSON.parse(data);
-            console.log('Contenu actuel de users.json avant ajout:', users); // Affiche le contenu actuel
-
-        // Ajouter le nouvel utilisateur à la liste
-            users.push({ id: savedUser ._id.toString(), username: savedUser .username });
-
-        // Écrire le nouveau tableau dans le fichier JSON
-            fs.writeFile(filePath, JSON.stringify(users, null, 2), (err) => {
-                if (err) {
-                    console.error('Erreur lors de l\'écriture dans le fichier users.json:', err);
-                    return res.status(500).send('Erreur lors de la mise à jour du fichier des utilisateurs.');
-                }
+        const savedUser  = await newUser .save();
 
         // Renvoie un message de succès avec l'utilisateur créé
-                res.status(201).json({
-                    message: 'Utilisateur créé avec succès!',
-                    user: { id: savedUser ._id, username: savedUser .username }
-                });
-            });
+        res.status(201).json({
+            message: 'Utilisateur créé avec succès!',
+            user: { id: savedUser ._id, username: savedUser .username }
         });
     } catch (error) {
         console.error('Erreur lors de la création de l\'utilisateur:', error);
@@ -149,26 +122,20 @@ router.post('/create', async (req, res) => {
     }
 });
 
-// Route pour obtenir la liste des utilisateurs
-router.get('/', isAuthenticated, (req, res) => {
-    const filePath = path.join(__dirname, '../data/users.json');
-
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            console.error('Erreur lors de la lecture du fichier users.json:', err);
-            return res.status(500).send('Erreur lors de la lecture des utilisateurs.');
-        }
-
-        // Convertir le contenu en tableau d'objets
-        const users = JSON.parse(data);
-
-        // Rendre la vue avec la liste des utilisateurs
+router.get('/', isAuthenticated, async (req, res) => {
+    try {
+        // Limitez les champs récupérés à 'username' et 'createdAt'
+        const users = await User.find().select('username createdAt');
+        
         res.render('userList', { 
             title: 'Liste des Utilisateurs',
-            users 
+            users
         });
-    });
+    } catch (error) {
+        console.error('Erreur lors de la récupération des utilisateurs:', error);
+        res.status(500).send('Erreur lors de la récupération des utilisateurs.');
+    }
 });
 
 
-    module.exports = router;
+module.exports = router;
