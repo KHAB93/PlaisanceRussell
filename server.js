@@ -17,9 +17,11 @@ const docsRoutes = require('./routes/docsRoutes');
 const path = require('path');
 const fs = require('fs'); 
 
+const uri = 'mongodb+srv://bahaakhatibi:ngsaef4NImmCqFE7@cluster0.qpz56.mongodb.net/mydatabase?retryWrites=true&w=majority';
+
 const filePath = path.join(__dirname, 'data', 'catways.json'); 
 
-console.log('MONGO_URI:', process.env.MONGO_URI); // Validez que l'URI est bien chargée
+console.log('MONGO_URI:', process.env.MONGO_URI); 
 
 const app = express();
 app.use(express.json()); 
