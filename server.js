@@ -79,10 +79,10 @@ passport.deserializeUser (async (id, done) => {
 mongoose.connect('mongodb://localhost:27017/Databases')
     .then(() => {
         console.log('Connecté à MongoDB');
-        // Appel de la fonction de migration après la connexion
         return importData();
     })
     .catch(err => console.error('Erreur de connexion à MongoDB:', err));
+
 
 
 // Fonction de migration
@@ -123,5 +123,6 @@ app.get('/', (req, res) => {
     });
 });
 
-// Démarrer le serveur
-const PORT = process.env.PORT || 8080;
+
+// Exporter l'application pour Vercel
+module.exports = app; // Exporter l'application pour Vercel
